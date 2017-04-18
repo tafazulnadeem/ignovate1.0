@@ -1,0 +1,32 @@
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">    
+		<title>Elsevier PMR Deck</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/actionItems.css">
+		<link rel="stylesheet" href="css/fieldSet.css">
+    </head>
+    <body ng-app="myApp">
+    <div ng-include="'header.html'"></div>
+	<div class="container" ng-view>
+    </div>
+	<div ng-include="'footer.html'"></div>
+	<script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+	<script src="js/actionItems.js"></script>
+	<script src="js/datePicker.js"></script>
+	<!-- vvv PptxGenJS libraries (jquery/jszip/pptxgen are required) vvv -->
+	<script type="text/javascript" src="js/jszip.min.js"></script>
+	<script type="text/javascript" src="js/promise.min.js"></script>     <!-- optional if not using IE11 -->
+	<script type="text/javascript" src="js/pptxgen.shapes.js"></script>  <!-- optional if you dont need non-core Shapes -->
+	<script type="text/javascript" src="js/pptxgen.masters.js"></script> <!-- optional if you dont need Slide Masters/Templates -->
+	<script type="text/javascript" src="js/pptxgen.js"></script>
+	<!-- ^^^ PptxGenJS libraries ^^^ -->
+	<script src="js/createPPT.js"></script>
+  </body>
+</html>

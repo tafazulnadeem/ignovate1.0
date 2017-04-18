@@ -1,0 +1,261 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <br/>
+                <form class="form-horizontal" ng-submit="onSubmit(action)" ng-controller="pmrCtrl">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Action Items</legend>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">Action Item</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" ng-model="action.item" class="actionItem form-control" id="exampleInputEmail1" placeholder="Action Item"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sel1" class="col-sm-4 control-label">Status</label>
+                            <div class="col-sm-8">
+                                <select class="actionItem form-control" id="sel1" ng-model="action.status">
+                                    <option>Completed</option>
+                                    <option>In-Progress</option>
+                                    <option>Yet to Start</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Remarks</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" ng-model="action.remarks" class="actionItem form-control" id="exampleInputPassword1" placeholder="Remarks"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group"> </div>
+                        <div class="form-group">
+                            <div class="form-group col-sm-8"> </div>
+                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="onSave(action);"
+                            />
+                            <input type="button" class="  actionItem btn btn-info" value="Add Another Action" ng-click="addAction(action);" />
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Save</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Your data saved successfully..</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <br/>
+
+
+                        <div class="row  form-group">
+                            <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
+                        </div>
+                    </fieldset>
+
+                    <div class="testing">
+                        actions: {{actions}} action: {{action}} data:{{data}} </div>
+
+                </form>
+            </div>
+            <div class="col-lg-4"> </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <br/>
+                <form class="form-horizontal" ng-submit="onSubmitRisk(risk)" ng-controller="pmrCtrl">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Risks and Dependencies</legend>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">Risk</label>
+                            <div class="col-sm-8">
+                                <input type="textarea"  ng-model="risk.title" class="form-control" id="exampleInputEmail1" placeholder="Risk Title">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Mitigation Plan</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" ng-model="risk.mitigation" class="form-control" id="exampleInputPassword1" placeholder="Mitigation Plan">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Status</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" ng-model="risk.status" class="form-control" id="exampleInputPassword1" placeholder="Status">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group"> </div>
+                        <div class="form-group">
+                            <div class="form-group col-sm-8"> </div>
+                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="onSaveRisk(risk);" />
+                            <input type="button" class="  actionItem btn btn-info" value="Add Another Risk" ng-click="addRisk(risk);" />
+                        </div>
+
+                       
+
+
+                        <br/>
+
+
+                        <div class="row  form-group">
+                            <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-lg-8"> </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <br/> <br/><br/>
+                <form class="form-horizontal">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Project Highlights </legend>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">Highlight 1</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" class="form-control" id="exampleInputEmail1" placeholder="Enter Highlight Here">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 2</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 3</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 4</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group"> </div>
+                        <div class="form-group">
+                            <div class="form-group col-sm-8"> </div>
+                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="addAction(action);" />
+                            <input type="button" class="  actionItem btn btn-info" value="Add Another Highlight" ng-click="addAction(action);" />
+                        </div>
+
+                        
+
+                        <br/>
+
+
+                        <div class="row  form-group">
+                            <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-lg-8"> </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <br/>
+                <form class="form-horizontal">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Milestones and Targets</legend>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">Milestone Title </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Milestone Title">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">Target Date </label>
+
+                            <div class="col-sm-7  input-group date">
+                                <input type="text" class="form-control" id="datepicker-13" placeholder="Milestone Title">
+                                <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+
+                            <div class="col-sm-1"> </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sel1" class="col-sm-4 control-label">Status</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="sel1">
+                                    <option>Completed</option>
+                                    <option>In-Progress</option>
+                                    <option>Yet to Start</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <div class="form-group ">
+
+                            <button type="submit" class="btn btn-primary col-sm-offset-6">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+	<a  href="#deliverables"> <button class="btn btn-primary col-sm-offset-6">Next</button></a>
+	<br><br>
