@@ -1,17 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Tenor+Sans);
 
-
+#headerText{
+font-family: 'Faster One', cursive;
+}
 #headerText {
 font-size : 63px;
 line-height: 1.8;
 color: ghostwhite;
 }
 #header {
-background-color: #3c3d41;
+background-color:lightgreen;
 }
 
 #myFooter {
-    background-color: #3c3d41;
+    background-color: lightgreen;
     color: white;
     padding-top: 30px;
 }

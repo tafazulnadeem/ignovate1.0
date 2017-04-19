@@ -13,19 +13,36 @@
 	var d3 = Plotly.d3;
 var img_jpg= d3.select('#jpg-export');
 		TESTER = document.getElementById('tester');
+		
+		
+		
+		var trace1 = {
+  x: ['giraffes', 'orangutans', 'monkeys'],
+  y: [20, 14, 23],
+  name: 'SF Zoo',
+  type: 'bar'
+};
 
-Plotly.plot( TESTER, [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }], { 
-    margin: { t: 0 } } ).then(
+var trace2 = {
+  x: ['giraffes', 'orangutans', 'monkeys'],
+  y: [12, 18, 29],
+  name: 'LA Zoo',
+  type: 'bar'
+};
+
+var data = [trace1, trace2];
+
+var layout = {barmode: 'group'};
+
+Plotly.newPlot(TESTER, data, layout).then(
     function(gd)
      {
       Plotly.toImage(gd,{height:300,width:300})
          .then(
             function(url)
          {
-             img_jpg.attr("src", url);
-             return Plotly.toImage(gd,{format:'jpeg',height:400,width:400});
+            console.log("The value of URL is");
+			console.log(url);
          }
          )
     });
