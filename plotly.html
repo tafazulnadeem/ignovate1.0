@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title></title>
+		 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		 
+	</head>
+	<body>
+	<div id="tester"></div>
+	
+	<img id="jpg-export"></img>
+	
+	<script>
+	var d3 = Plotly.d3;
+var img_jpg= d3.select('#jpg-export');
+		TESTER = document.getElementById('tester');
+
+Plotly.plot( TESTER, [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }], { 
+    margin: { t: 0 } } ).then(
+    function(gd)
+     {
+      Plotly.toImage(gd,{height:300,width:300})
+         .then(
+            function(url)
+         {
+             img_jpg.attr("src", url);
+             return Plotly.toImage(gd,{format:'jpeg',height:400,width:400});
+         }
+         )
+    });
+
+/* Current Plotly.js version */
+console.log( Plotly.BUILD );
+	
+    </script>
+	</body>
+</html>
