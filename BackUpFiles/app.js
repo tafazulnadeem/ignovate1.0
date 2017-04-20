@@ -261,7 +261,7 @@ app.controller('AdminController', function ($scope, $http, graphService, $q) {
 
 
 
-				var risk1 = 'Elsevier RP - Context:Â ForÂ SDFEÂ CIÂ migrationÂ workÂ theÂ teamÂ needsÂ toÂ workÂ onÂ microservicesÂ developmentÂ withÂ latestÂ andÂ greatestÂ technologiesÂ (SpringÂ Boot,Â AWSÂ Lambda,Â Hystrix,Â ApacheÂ Camel,Â ReactJS,Â NodeJS).Â TheÂ teamÂ doesÂ notÂ haveÂ enoughÂ knowledgeÂ on theÂ technologies. Condition:Â IfÂ theÂ teamÂ doesÂ notÂ gainÂ knowledge,Â theÂ riskÂ willÂ surelyÂ occur. Consequence:Â ProjectÂ failureÂ andÂ revenueÂ loss';
+				var risk1 = 'Elsevier RP - Context: For SDFE CI migration work the team needs to work on microservices development with latest and greatest technologies (Spring Boot, AWS Lambda, Hystrix, Apache Camel, ReactJS, NodeJS). The team does not have enough knowledge on the technologies. Condition: If the team does not gain knowledge, the risk will surely occur. Consequence: Project failure and revenue loss';
 				var slide6 = pptx.addNewSlide();
 				slide6.addImage({ path: './images/line.PNG', w: 9.5, x: 0.4, y: 0.2, h: 0.1 });
 				slide6.addImage({ path: './images/footer6.PNG', y: 5.12, w: 10, h: 0.5 });
@@ -296,7 +296,9 @@ app.controller('AdminController', function ($scope, $http, graphService, $q) {
 				};
 				slide6.addTable(riskRows, riskTabOpts2, riskCelOpts2);
 
-				
+				var slide7 = pptx.addNewSlide();
+				slide7.addImage({ path: './images/lastslide.PNG', w: 10, h: 5.62 });
+				alert("1");
 
 				var getImageData = function(){
 					var deferred = $q.defer();
@@ -369,12 +371,8 @@ app.controller('AdminController', function ($scope, $http, graphService, $q) {
 			}
 				var promise = getImageData();
 				promise.then(function(data){
-					var slide7 = pptx.addNewSlide();
-					slide7.addImage({ path: './images/line.PNG', w: 9.5, x: 0.4, y: 0.2, h: 0.1 });
-					slide7.addImage({ path: data, w: 10, h: 5.62 });
 					var slide8 = pptx.addNewSlide();
-					slide8.addImage({ path: './images/lastslide.PNG', w: 10, h: 5.62 });
-			
+					slide8.addImage({ path: data, w: 10, h: 5.62 });
 					pptx.save();
 				});
 })}});
@@ -407,101 +405,26 @@ app.controller("DeliverablesController", function ($scope, $http) {
 });
 
 /*Code for actionItems*/
-app.controller('pmrCtrl', function ($scope, actionService) {
+app.controller('actionCtrl', function ($scope, actionService) {
 
-	
-	
 	$scope.actions = [];
-	$scope.risks = [];
-	$scope.milestones = [];
-	$scope.allHighlights = [];
 	$scope.action = { item: '', status: '', remarks: '' };
-	$scope.risk = { title: '', mitigation: '', status: '' };
-	$scope.milestone = { title: '', targetDate: '', status: '' };
-	$scope.highlights= { highlight1: '', highlight2: '', highlight3: '' };
-	
-	
-	
 	
 	$scope.addAction = function (action) {
 		$scope.action.item = '';
 		$scope.action.status = '';
 		$scope.action.remarks = '';
-		
-	}
-	
-	$scope.addRisk = function (risk) {
-		$scope.risk.title = '';
-		$scope.risk.mitigation = '';
-		$scope.risk.status = '';
-	}
-	
-	$scope.addMS = function (milestone) {
-		$scope.milestone.title = '';
-		$scope.milestone.targetDate = '';
-		$scope.milestone.status = '';
-	}
-	
-	$scope.addHighlights = function (highlights) {
-		$scope.highlights.highlight1 = '';
-		$scope.highlights.highlight2 = '';
-		$scope.highlights.highlight3 = '';
-		$scope.highlights.highlight4 = '';
 	}
 
-	$scope.onSubmit = function (actions) {
-		$scope.actionData={};
-		$scope.actionData.team=$scope.actions; 
-		
-		
-		$scope.data = actionService.postData($scope.actionData);
+	$scope.onSubmit = function (actions,team) {
+		var actionArr = {};
+		actionArr.team = $scope.actions
+		$scope.data = actionService.postData(actionArr);
 	}
 
-	$scope.onSubmitRisk = function (risk) {
-		$scope.riskData={};
-		$scope.riskData.team=$scope.risks; 
-		
-		$scope.data = riskService.postData($scope.risks);
-	}
-	
-	
-	$scope.onSubmitMS = function (milestone) {
-		$scope.milestoneData={};
-		$scope.milestoneData.team=$scope.milestones; 
-		
-		$scope.data = riskService.postData($scope.risks);
-	}
-	
-	
-	$scope.onSubmitHighlight = function (highlights) {
-		
-		$scope.highlightsData={};
-		$scope.highlightsData.team=$scope.allHighlights; 
-		
-		$scope.data = riskService.postData($scope.risks);
-	}
-	
-	
-	
-	$scope.onSave = function (action,team) {
-		
+	$scope.onSave = function (action) {
 		$scope.actions.push(angular.copy(action));
-		}
-		
-	$scope.onSaveRisk = function (risk) {
-		$scope.risks.push(angular.copy(risk));
 	}
-	
-	$scope.onSavemoMS = function (milestone) {
-		$scope.milestones.push(angular.copy(milestone));
-	}
-	
-	$scope.onSaveHighlight = function (highlights) {
-		console.log('onSaveHighlight is called');
-		$scope.allHighlights.push(angular.copy(highlights));
-	}
-	
-	
 });
 
 
@@ -512,7 +435,7 @@ app.controller('riskCtrl', function ($scope, riskService) {
 	$scope.risk = { title: '', mitigation: '', status: '' };
 	
 
-	$scope.addRisk = function (risks) {
+	$scope.addRisk = function (risk) {
 		$scope.risk.title = '';
 		$scope.risk.mitigation = '';
 		$scope.risk.status = '';
@@ -533,7 +456,7 @@ app.service("actionService", function () {
 		return action;
 	}
 	});
- app.service("riskService", function () {
+	app.service("actionService", function () {
 		this.postRisk = function (risk) {
 			return risk;
 		}

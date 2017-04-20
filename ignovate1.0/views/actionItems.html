@@ -72,7 +72,7 @@
                     </fieldset>
 
                     <div class="testing">
-                        actions: {{actions}} action: {{action}} data:{{data}} </div>
+                        actions: {{actions}} action: {{action}} data:{{data}} actionData:{{actionData}}</div>
 
                 </form>
             </div>
@@ -134,6 +134,10 @@
                             <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
                         </div>
                     </fieldset>
+					
+					<div class="testing">
+                        risks: {{risks }} risk : {{risk }} data:{{data}} riskData:{{riskData}}</div>
+					
                 </form>
             </div>
             <div class="col-lg-8"> </div>
@@ -147,7 +151,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <br/> <br/><br/>
-                <form class="form-horizontal">
+                <form class="form-horizontal" ng-submit="onSubmitHighlight(highlights)"  ng-controller="pmrCtrl"  >
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Project Highlights </legend>
 
@@ -155,28 +159,28 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="col-sm-4 control-label">Highlight 1</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="exampleInputEmail1" placeholder="Enter Highlight Here">
+                                <input type="textarea" ng-model="highlights.highlight1"  class="form-control" id="exampleInputEmail1" placeholder="Enter Highlight Here">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 2</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                                <input type="textarea" ng-model="highlights.highlight2" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 3</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                                <input type="textarea" ng-model="highlights.highlight3" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="col-sm-4 control-label">Highlight 4</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
+                                <input type="textarea"  ng-model="highlights.highlight4" class="form-control" id="exampleInputPassword1" placeholder="Enter Highlight Here">
                             </div>
                         </div>
 
@@ -186,8 +190,8 @@
                         <div class="form-group"> </div>
                         <div class="form-group">
                             <div class="form-group col-sm-8"> </div>
-                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="addAction(action);" />
-                            <input type="button" class="  actionItem btn btn-info" value="Add Another Highlight" ng-click="addAction(action);" />
+                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="onSaveHighlight(highlights)" />
+                            <input type="button" class="  actionItem btn btn-info" value="Add Another Highlight" ng-click="addHighlights(highlights);" />
                         </div>
 
                         
@@ -199,6 +203,9 @@
                             <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
                         </div>
                     </fieldset>
+					
+					<div class="testing">
+                        allHighlights: {{allHighlights }} highlights : {{highlights }} data:{{data}} highlightsData:{{highlightsData}}</div>
                 </form>
             </div>
             <div class="col-lg-8"> </div>
@@ -211,35 +218,32 @@
         <div class="row">
             <div class="col-lg-8">
                 <br/>
-                <form class="form-horizontal">
+                <form class="form-horizontal" ng-submit="onSubmitMS(milestone)"  ng-controller="pmrCtrl" >
                     <fieldset class="scheduler-border">
                         <legend class="scheduler-border">Milestones and Targets</legend>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="col-sm-4 control-label">Milestone Title </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Milestone Title">
+                                <input type="text"  ng-model="milestone.title" class="form-control" id="exampleInputEmail1" placeholder="Milestone Title">
                             </div>
                         </div>
 
 
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="col-sm-4 control-label">Target Date </label>
-
-                            <div class="col-sm-7  input-group date">
-                                <input type="text" class="form-control" id="datepicker-13" placeholder="Milestone Title">
-                                <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+							
+							<div class="col-sm-8">
+                                <input type="textarea" ng-model="milestone.targetDate"  class="form-control" id="exampleInputEmail1" placeholder="dd/mm/yyyy">
                             </div>
 
-                            <div class="col-sm-1"> </div>
+                            
                         </div>
 
                         <div class="form-group">
                             <label for="sel1" class="col-sm-4 control-label">Status</label>
                             <div class="col-sm-8">
-                                <select class="form-control" id="sel1">
+                                <select class="form-control"  id="sel1" ng-model="milestone.status">
                                     <option>Completed</option>
                                     <option>In-Progress</option>
                                     <option>Yet to Start</option>
@@ -247,12 +251,26 @@
                                 </select>
                             </div>
                         </div>
-                        <br/><br/>
-                        <div class="form-group ">
+						
+						<br/><br/>
+						
+						
+						<div class="form-group">
+                            <div class="form-group col-sm-8"> </div>
+                            <input type="button" data-toggle="modal" data-target="#myModal" class="actionItem btn  btn-info" value="Save" ng-click="onSavemoMS(milestone);"/>
+                            <input type="button" class="  actionItem btn btn-info" value="Add Another Action" ng-click="addMS(milestone);" />
+                        </div>
 
-                            <button type="submit" class="btn btn-primary col-sm-offset-6">Submit</button>
+						 <br/>
+
+
+                        <div class="row  form-group">
+                            <input type="submit" class="btn btn-primary btn-md col-sm-offset-6" value="Submit" />
                         </div>
                     </fieldset>
+					<div class="testing">
+                        milestones: {{milestones }} milestone : {{milestone }} data:{{data}} milestoneData:{{milestoneData}}</div>
+					
                 </form>
             </div>
         </div>
