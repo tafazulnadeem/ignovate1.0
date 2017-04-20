@@ -1,15 +1,13 @@
 <div ng-controller="AdminController">
 <h1>Admin Page</h1>
-<button type="button" ng-click="generatePPT()" class="btn btn-primary">Generate PPT</button>
-<br><br>
 
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-tabs">
-      <li class="active"><a href="#">Home</a></li>
+      <li ><a href="#">Home</a></li>
       <li role="presentation"><a href="#admin">Scopus</a></li>
-      <li role="presentation"><a href="#science">ScienceDirect</a></li>
+      <li role="presentation" class="active"><a href="#science">ScienceDirect</a></li>
       <li role="presentation"><a href="#enriched">EnrichedContent</a></li>
       <li role="presentation"><a href="#ae">SPF A&E</a></li>
       <li role="presentation"><a href="#content">SPF Content</a></li>
@@ -19,8 +17,12 @@
 </nav>
   
 <div class="container">
-  <h3>Scopus Data goes here</h3>
+  <h3>Science direct Data goes here</h3>
+  <p></p>
 </div>
+
+<button type="button" ng-click="generatePPT()" class="btn btn-primary">Generate PPT</button>
+<br><br>
 
 <div id="tester" style = "display:none"></div>
 <img id="jpg-export" style = "display:none"></img>

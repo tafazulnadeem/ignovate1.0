@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+﻿var app = angular.module('myApp', []);
 app.config(function ($routeProvider) {
 	$routeProvider
 		.when('/', {
@@ -15,6 +15,30 @@ app.config(function ($routeProvider) {
 		})
 		.when('/deliverables', {
 			templateUrl: 'views/deliverables.html',
+			controller: ''
+		})
+		.when('/scopus', {
+			templateUrl: 'views/admin.html',
+			controller: ''
+		})
+.when('/science', {
+			templateUrl: 'views/science.html',
+			controller: ''
+		})
+.when('/ae', {
+			templateUrl: 'views/ae.html',
+			controller: ''
+		})
+.when('/content', {
+			templateUrl: 'views/content.html',
+			controller: ''
+		})
+.when('/enriched', {
+			templateUrl: 'views/enriched.html',
+			controller: ''
+		})
+.when('/ev', {
+			templateUrl: 'views/ev.html',
 			controller: ''
 		})
 		.otherwise({
