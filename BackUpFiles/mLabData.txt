@@ -1,0 +1,165 @@
+{
+    "_id": {
+        "$oid": "58f3dae7734d1d3b89bacccb"
+    },
+    "users": [
+        {
+            "user": "admin",
+            "password": "password-1"
+        },
+        {
+            "user": "scopus",
+            "password": "password-1"
+        },
+        {
+            "user": "sciencedirect",
+            "password": "password-1"
+        },
+        {
+            "user": "enrichedcontent",
+            "password": "password-1"
+        },
+        {
+            "user": "spfa&e",
+            "password": "password-1"
+        },
+        {
+            "user": "spfcontent",
+            "password": "password-1"
+        },
+        {
+            "user": "engineeringvillage",
+            "password-1": "password-1"
+        }
+    ],
+    "actionRowsData": {
+        "actionRow1": {
+            "item": "action1",
+            "status": "status1",
+            "remarks": "remarks1"
+        },
+        "actionRow2": {
+            "item": "action2",
+            "status": "status2",
+            "remarks": "remarks2"
+        }
+    },
+    "highlights": {
+        "scopusHighlights": [
+            "New Display rules for citation Benchmarking in Altmetrics page.",
+            "New CiteScore widget popup added.",
+            "Xabsmetadata SOAP to REST migration."
+        ],
+        "sciencedirectHighlights": [
+            "sciencedirectHighlight1",
+            "sciencedirectHighlight2"
+        ],
+        "enrichedContentHighlights": [
+            "EnrichedContentHighlight1",
+            "EnrichedContentHighlight2"
+        ],
+        "spfaeHighlights": [
+            "spf a&e highlight1"
+        ],
+        "spfcontentHighlights": [
+            "spfcontentHighlight1",
+            "spfcontentHighlight2"
+        ],
+        "engineeringvillageHighlights": [
+            "evhighlight1",
+            "evhighlight2"
+        ]
+    },
+    "milestonesData": {
+        "milestone1": {
+            "milestone": "action1",
+            "targetDate": "status1",
+            "status": "remarks1"
+        },
+        "milestone2": {
+            "milestone": "action2",
+            "targetDate": "status2",
+            "status": "remarks2"
+        }
+    },
+    "sprintDetailsData": {
+        "Scopus": {
+            "team": "Scopus",
+            "currentSprint": "66",
+            "offshorePOC": "Senthil",
+            "onsitePOC": "Saravanan",
+            "velocityN": "50",
+            "velocityN1": "51",
+            "velocityN2": "52",
+            "velocityImprovement": "50",
+            "cvsdN": "50",
+            "cvsdN1": "51",
+            "cvsdN2": "52",
+            "remarks": "remarksScopus"
+        },
+        "ScienceDirect": {
+            "team": "ScienceDirect",
+            "currentSprint": "66",
+            "offshorePOC": "Senthil",
+            "onsitePOC": "Saravanan",
+            "velocityN": "50",
+            "velocityN1": "51",
+            "velocityN2": "52",
+            "velocityImprovement": "50",
+            "cvsdN": "50",
+            "cvsdN1": "51",
+            "cvsdN2": "52",
+            "remarks": "sciencedirectRemarks"
+        }
+    },
+    "defectMetrics": {
+        "defectCount": {
+            "scopus": [
+                4,
+                6,
+                13
+            ],
+            "scienceDirect": [
+                3,
+                1,
+                1
+            ],
+            "SPF-A&E": [
+                1,
+                2,
+                4
+            ],
+            "SPF-Content": [
+                0,
+                2,
+                1
+            ],
+            "DKP": [
+                1,
+                1,
+                1
+            ],
+            "EV": [
+                0,
+                0,
+                1
+            ]
+        },
+        "postProduction": {
+            "scopus": [
+                0,
+                1,
+                1
+            ],
+            "scienceDirect": [
+                3,
+                1,
+                1
+            ],
+            "SPF-A&E": [],
+            "SPF-Content": [],
+            "DKP": [],
+            "EV": []
+        }
+    }
+}
